@@ -18,6 +18,7 @@ body {
     height: 600px;
 }
 
+/* From professor's example */
 .glitch-wrapper {
     display: flex;
     justify-content: center;
