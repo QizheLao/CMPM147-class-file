@@ -25,22 +25,21 @@ class MyProjectClass {
 function main() {
   const fillers = {
     adventurer: ["slug"],
-    location: ["Fra", "Tro", "Gre", "Pan", "Ast", "Ara"],
-    people: ["kindly", "meek", "brave", "wise", "sacred", "cherished", "honored", "forgotten", "apathetic", "mystic", "orca", "帥氣"],
-    item: ["axe", "staff", "book", "cloak", "shield", "club", "sword", "magic gloves", "galvel", "fists", "mace", "potato"],
+    location: ["Rachel Carson", "Oaks", "Porter", "Cowell", "Stevenson", "Crown", "Merrill", "C9", "C10"],
+    people: ["stdent", "professor", "adviser"],
+    item: ["dentures", "Chat GPT", "computer", "crowbar", "orbital strike", "learn python the hard way"],
     num: ["two", "three", "eleven", "so many", "too many", "an unsatisfying number of", "barely any", "an unspecified amount of", "surely a satisfactory number of"],
-    looty: ["gleaming", "valuable", "esteemed", "rare", "exalted", "scintillating", "kinda gross but still usefull", "complete garbage"],
-    loots: ["coins", "chalices", "ingots", "hides", "victory points", "gems","scrolls", "bananas", "noodles", "goblins", "CS Majors", "college credits"],
-    baddies: ["orcs", "glubs", "fishmen", "cordungles", "mountain trolls", "college professors", "dragon", "evil $adventurer", "agents of chaos"],
-    message: ["work"],
+    loots: ["college credits", "in campus housing", "parking permit", "class permission code", "10$ amazon gift card"],
+    trouble: ["hit by a bus", "hit by a ceiling fan", "failing a class", "failing a CS class", "back from another dimension", "killed by Terminids", "need a pet to heal the soul"],
+    message: ["work", "job"],
     
   };
   
-  const template = `$adventurer, heed my $message!
+  const template = `$adventurer, I have a $message for you!
   
-  I have just come from $location where the $people folk are in desperate need. Their town has been overrun by $baddies. You must venture forth at once, taking my $item, and help them.
+  I have just come from $location college where the $people are $trouble. taking this $item, and help them.
   
-  It is told that the one who can rescue them will be awarded with $num $looty $loots. Surely this must tempt one such as yourself!
+  The hero who save them will be awarded with $num $loots. $adventurer, save them!
   `;
   
   
