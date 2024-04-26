@@ -6,12 +6,12 @@ function generateGrid(numCols, numRows) {
     for (let i = 0; i < numRows; i++) {
       let row = [];
       for (let j = 0; j < numCols; j++) {
-        row.push("_"); // Background character
+        row.push("_");
       }
       grid.push(row);
     }
   
-    // Function to add a room to the grid
+    // add room to the grid
     function addRoom() {
       let width = Math.floor(Math.random() * 5 + 3); // Room width between 3 and 7
       let height = Math.floor(Math.random() * 5 + 3); // Room height between 3 and 7
@@ -20,7 +20,7 @@ function generateGrid(numCols, numRows) {
       return { x, y, width, height };
     }
   
-    // Function to check if a room overlaps with existing rooms
+    // if a room overlaps with existing rooms
     function doesOverlap(room, rooms) {
       for (let other of rooms) {
         if (
@@ -31,10 +31,10 @@ function generateGrid(numCols, numRows) {
             other.y + other.height < room.y
           )
         ) {
-          return true; // Overlaps
+          return true;
         }
       }
-      return false; // Does not overlap
+      return false;
     }
   
     // Generate 2 or 3 rooms
@@ -67,8 +67,8 @@ function generateGrid(numCols, numRows) {
   
     // Randomly place '1' and '2' in the rooms
     rooms.forEach(room => {
-      let count1 = Math.floor(Math.random() * 2); // Random count for '1' between 0 and 3
-      let count2 = Math.floor(Math.random() * 2); // Random count for '2' between 0 and 3
+      let count1 = Math.floor(Math.random() * 2); 
+      let count2 = Math.floor(Math.random() * 2); 
       addSpecialTiles(room, '1', count1);
       addSpecialTiles(room, '2', count2);
     });
@@ -111,7 +111,6 @@ function generateGrid(numCols, numRows) {
   }
   
   function gridCheck(grid, i, j, target) {
-    // Check if the given cell is within the bounds and matches the target character
     return (
       i >= 0 &&
       i < grid.length &&
@@ -122,7 +121,6 @@ function generateGrid(numCols, numRows) {
   }
   
   function gridCode(grid, i, j, targets) {
-    // Compute a 4-bit code that represents the presence of the target characters around the cell
     let code = 0;
     targets.forEach(target => {
       if (gridCheck(grid, i - 1, j, target)) code |= 1; // Top
@@ -134,10 +132,9 @@ function generateGrid(numCols, numRows) {
   }
   
   function getAnimatedTileFor2(frameCount) {
-    const animationSpeed = 10; // How fast the animation cycles (lower is faster)
-    const tileFrames = [[0, 28], [1, 28], [2, 28]]; // The different tiles to cycle through
+    const animationSpeed = 10;
+    const tileFrames = [[0, 28], [1, 28], [2, 28]]; 
     
-    // Calculate the current index based on the frame count
     const index = Math.floor(frameCount / animationSpeed) % tileFrames.length;
     return tileFrames[index];
   }
@@ -147,17 +144,13 @@ function generateGrid(numCols, numRows) {
     let tile = lookup[code];
     
     if (grid[i][j] === '1') {
-      // If the current tile is "1", use the corresponding tile index
       placeTile(i, j, 26, 0);
     } else if (grid[i][j] === '2') {
-      // If the current tile is "2", use the corresponding tile index
       const [ti, tj] = getAnimatedTileFor2(frameCount);
       placeTile(i, j, ti, tj);
     } else if (tile) {
-      // Use the autotiling logic for the rest of the tiles
       placeTile(i, j, tile[0], tile[1]);
     } else {
-      // If no matching tile is found, use a default tile
       placeTile(i, j, dti, dtj);
     }
   }
@@ -174,9 +167,6 @@ function generateGrid(numCols, numRows) {
     [2,23], //Left
     [5,24], //TopRight
     [6,24], //BottomRight
-    
-  
-    // ... (other combinations corresponding to your tileset)
   ];
   
   function drawGrid(grid) {
